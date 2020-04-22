@@ -10,6 +10,8 @@ let soaps = [];
 let score = 0;
 let soundClassifier;
 let restart = false;
+let button;
+let device=false;
 
 function preload() {
   const options = {
@@ -27,8 +29,23 @@ function preload() {
 
 function setup() {
   createCanvas(900, 500);
+  //Device Orientation Event, Device Motion Event
+  if(typeof(DeviceOrientationEvent)!=='undefined' && typeof(DeviceOrientationEvent.requestPermission)==='function')
+  {
+   //ios13
+  // background(255,1,2);
+   
+    
+  }
+  else
+  {
+    
+device=true;
+  }
+ 
   person = new Person();
   soundClassifier.classify(gotCommand);
+
 
 }
 
@@ -65,6 +82,7 @@ function touchStarted(event) {
 
 
 function draw() {
+ if(device== true){
 
   image(bImg, -scrollBg, 0, width, height);
   image(bImg, -scrollBg + width, 0, width, height);
@@ -99,8 +117,11 @@ function draw() {
       // s.remove();
     }
   }
-  textFont("default");
   
+   textFont(font);
+  textSize(30);
+  fill(150,75,0);
+   text("Say 'UP' to escape from virus", width-650, 70);
   
   textFont(font);
   textSize(30);
@@ -150,4 +171,5 @@ function draw() {
   scrollBg += scroll / 6;
   
    
+}
 }
