@@ -3,7 +3,7 @@ class Soap{
  constructor()
   
   {
-   this.r=100;
+   this.r=65;
     this.x=700;
     this.y=height-400;
   }  

@@ -18,7 +18,7 @@ function preload() {
   soundClassifier = ml5.soundClassifier('SpeechCommands18w', options);
   font = loadFont('Cubano-1.ttf');
   pImg = loadImage('person.png');
-  vImg = loadImage('virusImg.png');
+  vImg = loadImage('virus.png');
   bImg = loadImage('background.jpg');
   logo = loadImage('stayhome.png');
   soapImg = loadImage('soap.png');
@@ -57,6 +57,10 @@ if (restart){
   }
 }
 
+function touchStarted(event) {
+  console.log(event);
+  person.jump();
+}
 
 
 
